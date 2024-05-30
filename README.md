@@ -2,7 +2,6 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2205.12454-b31b1b.svg)](https://arxiv.org/abs/2205.12454)
 
-> The code implementation is based on [GraphGPS (Rampasek et al., 2022)](https://github.com/rampasek/GraphGPS).
 
 
 GEAET architecture:
@@ -13,6 +12,7 @@ Transformer vs GEANet:
 
 ![GraphGPS-viz](self_external.png)
 
+> The code implementation is based on [GraphGPS (Rampasek et al., 2022)](https://github.com/rampasek/GraphGPS).
 
 ### Python environment setup with Conda
 
