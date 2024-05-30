@@ -47,7 +47,6 @@ gt:
   attn_dropout: 0.5
   layer_norm: False
   batch_norm: True
-  edge_norm: False
 GEANet:
   n_heads: 4
   unit_size: 17
