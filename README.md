@@ -60,7 +60,6 @@ python main.py --cfg configs/GEAET/vocsp.yaml  wandb.use False accelerator "cuda
 python main.py --cfg configs/GEAET/coco.yaml  wandb.use False accelerator "cuda:0" 
 
 # replace 'cuda:0' with the device to use
-# replace 'CIFAR10.yaml' with any experiments to run
 # The above datasets will be downloaded automatically when running the code.
 
 ```
