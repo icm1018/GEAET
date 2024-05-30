@@ -14,7 +14,7 @@ Transformer vs GEANet:
 
 > The code implementation is based on [GraphGPS (Rampasek et al., 2022)](https://github.com/rampasek/GraphGPS).
 
-### Python environment setup with Conda
+### Python environment setup
 
 ```bash
 conda create -n GEAET python=3.10
@@ -37,7 +37,7 @@ conda clean --all
 ```
 
 
-### Running GEAET
+### Running GEAET on Different Datasets
 ```bash
 conda activate GEAET
 
@@ -64,6 +64,7 @@ python main.py --cfg configs/GEAET/coco.yaml  wandb.use False accelerator "cuda:
 
 # replace 'cuda:0' with the device to use
 # replace 'CIFAR10.yaml' with any experiments to run
+# The above datasets will be downloaded automatically when running the code.
 
 ```
 
