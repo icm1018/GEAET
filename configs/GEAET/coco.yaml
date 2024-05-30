@@ -1,0 +1,72 @@
+out_dir: results
+metric_best: f1
+num_workers: 6
+accelerator: "cuda:1"
+wandb:
+  use: False
+  project: COCO
+dataset:
+  format: PyG-COCOSuperpixels
+  name: edge_wt_region_boundary
+  slic_compactness: 30
+  task: graph  
+  task_type: classification
+  transductive: False
+  node_encoder: True
+  node_encoder_name: COCONode #+LapPE
+  node_encoder_bn: False
+  edge_encoder: True
+  edge_encoder_name: COCOEdge
+  edge_encoder_bn: False
+posenc_LapPE:
+  enable: False
+  eigen:
+    laplacian_norm: none
+    eigvec_norm: L2
+    max_freqs: 10
+  model: DeepSet
+  dim_pe: 16
+  layers: 2
+  raw_norm_type: none
+train:
+  mode: custom
+  batch_size: 50
+  eval_period: 1
+  ckpt_period: 100
+  eval_smoothing_metrics: True
+model:
+  type: GEAET
+  loss_fun: weighted_cross_entropy
+gt:
+  layer_type: CustomGatedGCN+Transformer+GEANet
+  layers: 8 #8
+  n_heads: 4
+  dim_hidden: 68 #68  # `gt.dim_hidden` must match `gnn.dim_inner`
+  ffn_dropout: 0.1
+  global_dropout: 0.1
+  local_dropout: 0.1
+  external_dropout: 0.1
+  attn_dropout: 0.5
+  layer_norm: True
+  batch_norm: False
+GEANet:
+  n_heads: 4
+  unit_size: 17
+gnn:
+  head: inductive_node
+  layers_pre_mp: 0
+  layers_post_mp: 1
+  dim_inner: 68 #68  # `gt.dim_hidden` must match `gnn.dim_inner`
+  batchnorm: True
+  act: gelu
+  dropout: 0.1
+  agg: mean
+  normalize_adj: False
+optim:
+  clip_grad_norm: True
+  optimizer: adamW
+  weight_decay: 0.0
+  base_lr: 0.001
+  max_epoch: 200
+  scheduler: cosine_with_warmup
+  num_warmup_epochs: 10

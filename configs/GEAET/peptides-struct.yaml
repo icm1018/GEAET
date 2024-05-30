@@ -1,0 +1,75 @@
+out_dir: results
+metric_best: mae
+metric_agg: argmin
+accelerator: "cuda:0"
+wandb:
+  use: False
+  project: peptides-struct
+dataset:
+  format: OGB
+  name: peptides-structural
+  task: graph
+  task_type: regression
+  transductive: False
+  node_encoder: True
+  node_encoder_name: Atom+LapPE
+  # node_encoder_name: Atom
+  node_encoder_bn: False
+  edge_encoder: True
+  edge_encoder_name: Bond
+  edge_encoder_bn: False
+posenc_LapPE:
+  enable: True
+  # enable: False
+  eigen:
+    laplacian_norm: none
+    eigvec_norm: L2
+    max_freqs: 10
+  model: DeepSet
+  dim_pe: 16
+  layers: 2
+  raw_norm_type: none
+train:
+  mode: custom
+  batch_size: 200
+  eval_period: 1
+  ckpt_period: 100
+model:
+  type: GEAET
+  loss_fun: l1
+  graph_pooling: mean
+gt:
+  layer_type: GCN+None+GEANet
+  layers: 6
+  ffn_dropout: 0.05
+  global_dropout: 0.0
+  local_dropout: 0.1
+  local_out_act: True
+  external_dropout: 0.05
+  dim_hidden: 224  
+  n_heads: 8
+  use_ffn: False
+  layer_norm: False
+  batch_norm: True
+  attn_dropout: 0.5
+GEANet:
+  n_heads: 8
+  unit_size: 28
+gnn:
+  head: mlp_graph
+  layers_pre_mp: 0
+  layers_mp: 6
+  layers_post_mp: 3
+  dim_inner: 224
+  layer_type: gcnconv
+  act: gelu
+  residual: True
+  dropout: 0.1
+optim:
+  clip_grad_norm: True
+  optimizer: adamW
+  weight_decay: 0.0
+  base_lr: 0.001
+  max_epoch: 250
+  scheduler: cosine_with_warmup
+  num_warmup_epochs: 5

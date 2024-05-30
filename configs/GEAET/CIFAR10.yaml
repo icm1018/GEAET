@@ -1,0 +1,68 @@
+out_dir: results
+metric_best: accuracy
+accelerator: "cuda:0"
+wandb:
+  use: False
+  project: CIFAR10
+dataset:
+  format: PyG-GNNBenchmarkDataset
+  name: CIFAR10
+  task: graph
+  task_type: classification
+  transductive: False
+  node_encoder: True
+  node_encoder_name: LinearNode+EquivStableLapPE
+  node_encoder_bn: False
+  edge_encoder: True
+  edge_encoder_name: LinearEdge
+  edge_encoder_bn: False
+posenc_EquivStableLapPE:
+  enable: True
+  eigen:
+    laplacian_norm: none
+    eigvec_norm: L2
+    max_freqs: 8
+  raw_norm_type: none
+train:
+  mode: custom
+  batch_size: 16
+  eval_period: 1
+  ckpt_period: 100
+model:
+  type: GEAET
+  loss_fun: cross_entropy
+  edge_decoding: dot
+  graph_pooling: mean
+gt:
+  layer_type: CustomGatedGCN+Transformer+GEANet 
+  layers: 5
+  n_heads: 4
+  dim_hidden: 40  
+  ffn_dropout: 0.1
+  global_dropout: 0.1
+  local_dropout: 0.1
+  external_dropout: 0.1
+  attn_dropout: 0.1
+  layer_norm: False
+  batch_norm: True
+GEANet:
+  n_heads: 4
+  unit_size: 10
+gnn:
+  head: default
+  layers_pre_mp: 0
+  layers_post_mp: 2
+  dim_inner: 40  
+  batchnorm: False
+  act: relu
+  dropout: 0.1
+  agg: mean
+  normalize_adj: False
+optim:
+  clip_grad_norm: True
+  optimizer: adamW
+  weight_decay: 1e-5
+  base_lr: 0.001
+  max_epoch: 150
+  scheduler: cosine_with_warmup
+  num_warmup_epochs: 5
