@@ -52,13 +52,12 @@ python main.py --cfg configs/GEAET/CIFAR10.yaml  wandb.use False accelerator "cu
 
 ## Citation
 
-If you find this work useful, please cite our NeurIPS 2022 paper:
+If you find this work useful, please cite our ICML 2024 paper:
 ```bibtex
-@article{rampasek2022GPS,
-  title={{Recipe for a General, Powerful, Scalable Graph Transformer}}, 
-  author={Ladislav Ramp\'{a}\v{s}ek and Mikhail Galkin and Vijay Prakash Dwivedi and Anh Tuan Luu and Guy Wolf and Dominique Beaini},
-  journal={Advances in Neural Information Processing Systems},
-  volume={35},
-  year={2022}
+@inproceedings{GEAET,
+  title={Graph External Attention Enhanced Transformer},
+  author={Jianqing Liang and Min Chen and Jiye Liang},
+  booktitle={International Conference on Machine Learning},
+  year={2024},
 }
 ```
