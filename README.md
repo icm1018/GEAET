@@ -50,9 +50,6 @@ python main.py --cfg configs/GEAET/mnist.yaml  wandb.use False accelerator "cuda
 # Running GEAET on PATTERN
 python main.py --cfg configs/GEAET/pattern.yaml  wandb.use False accelerator "cuda:0"
 
-# Running GEAET on CIFAR10
-python main.py --cfg configs/GEAET/CIFAR10.yaml  wandb.use False accelerator "cuda:0"
-
 # Running GEAET on peptides-struct
 python main.py --cfg configs/GEAET/peptides-struct.yaml  wandb.use False accelerator "cuda:0"
 
