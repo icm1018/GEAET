@@ -41,8 +41,26 @@ conda clean --all
 ```bash
 conda activate GEAET
 
-# Run
-python main.py --cfg configs/GEAET/CIFAR10.yaml  wandb.use False accelerator "cuda:0" 
+# Running GEAET for CIFAR10
+python main.py --cfg configs/GEAET/CIFAR10.yaml  wandb.use False accelerator "cuda:0"
+
+# Running GEAET for MNIST
+python main.py --cfg configs/GEAET/mnist.yaml  wandb.use False accelerator "cuda:0"
+
+# Running GEAET for PATTERN
+python main.py --cfg configs/GEAET/pattern.yaml  wandb.use False accelerator "cuda:0"
+
+# Running GEAET for CIFAR10
+python main.py --cfg configs/GEAET/CIFAR10.yaml  wandb.use False accelerator "cuda:0"
+
+# Running GEAET for peptides-struct
+python main.py --cfg configs/GEAET/peptides-struct.yaml  wandb.use False accelerator "cuda:0"
+
+# Running GEAET for PyG-VOCSuperpixels
+python main.py --cfg configs/GEAET/vocsp.yaml  wandb.use False accelerator "cuda:0"
+
+# Running GEAET for PyG-COCOSuperpixels
+python main.py --cfg configs/GEAET/coco.yaml  wandb.use False accelerator "cuda:0" 
 
 # replace 'cuda:0' with the device to use
 # replace 'CIFAR10.yaml' with any experiments to run
