@@ -1,8 +1,5 @@
 # Graph External Attention Enhanced Transformer
 
-[![arXiv](https://img.shields.io/badge/arXiv-2205.12454-b31b1b.svg)](https://arxiv.org/abs/2205.12454)
-
-
 
 GEAET architecture:
 
