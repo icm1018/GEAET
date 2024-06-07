@@ -67,7 +67,7 @@ python main.py --cfg configs/GEAET/coco.yaml  wandb.use False accelerator "cuda:
 
 If you find this work useful, please cite our ICML 2024 paper:
 ```bibtex
-@inproceedings{GEAET,
+@inproceedings{liang2024graph,
   title={Graph External Attention Enhanced Transformer},
   author={Jianqing Liang and Min Chen and Jiye Liang},
   booktitle={International Conference on Machine Learning},
