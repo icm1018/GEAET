@@ -86,7 +86,7 @@ class GEANet(nn.Module):
         node_out = node_x.reshape(N, head,-1)  # Q * 4（head）  ：  N x 16 x 4(head)
         #node_out = node_out.transpose(1, 2)  # (N, 16, 4) -> (N, 4, 16)
         node_out = self.node_U1(node_out)
-        attn = self.norm(node_out)  # 行列归一化  N x 16 x 4
+        attn = self.norm(node_out)  #   N x 16 x 4
         node_out = self.node_U2(attn)
         node_out = node_out.reshape(N, -1)
         
@@ -96,7 +96,7 @@ class GEANet(nn.Module):
             edge_out = edge_attr.reshape(N, -1, head)  # Q * 4（head）  ：  N x 16 x 4(head)
             edge_out = edge_out.transpose(1, 2)  # (N, 16, 4) -> (N, 4, 16)
             edge_out = self.edge_U1(edge_out)
-            attn = self.norm(edge_out)  # 行列归一化  N x 16 x 4
+            attn = self.norm(edge_out)  #   N x 16 x 4
             edge_out = self.edge_U2(attn)
             edge_out = edge_out.reshape(N, -1)
         else:
