@@ -2,6 +2,12 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2405.21061-b31b1b.svg)](https://arxiv.org/abs/2405.21061)
 
+
+[Proceedings of the 41st International Conference on Machine Learning, PMLR 235:29560-29574, 2024.](https://proceedings.mlr.press/v235/liang24a.html)
+
+
+
+
 GEAET architecture:
 
 ![GraphGPS-viz](GEAET.png)
